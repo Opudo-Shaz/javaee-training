@@ -1,6 +1,30 @@
 package org.example.builder;
 
-// Builder class has been moved as a static inner class inside User.java
-// This file is kept for reference only. The proper builder pattern is now implemented
-// with Builder as a static inner class of User.
+public class Builder implements UserBuilder {
+    String name;
+    int age;
+    String country;
 
+    @Override
+    public Builder name(String name){
+        this.name = name;
+        return this;
+    }
+
+    @Override
+    public Builder age(int age){
+        this.age = age;
+        return this;
+    }
+
+    @Override
+    public Builder country(String country){
+        this.country = country;
+        return this;
+    }
+
+    @Override
+    public User build(){
+        return new User(this);
+    }
+}
